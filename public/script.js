@@ -69,7 +69,11 @@ document.getElementById('confirmar-deposito').addEventListener('click', async fu
       mostrarPopup("Chave Pix gerada! Copie e faça o pagamento.");
 
       // ✅ Corrigido: usar a rota /depositar e enviar apenas username e valor
+<<<<<<< HEAD
       const res = await fetch("http://localhost:3000/depositar", {
+=======
+      const res = await fetch("depositar", {
+>>>>>>> 1a570a5 (Atualizando projeto com os últimos arquivos)
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, valor }) // ⬅️ somente esses campos
@@ -236,7 +240,11 @@ async function confirmarAposta(partida, valorId, timeId) {
   if (!confirmar) return;
 
   try {
+<<<<<<< HEAD
     const res = await fetch("http://localhost:3000/apostar", {
+=======
+    const res = await fetch("/apostar", {
+>>>>>>> 1a570a5 (Atualizando projeto com os últimos arquivos)
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ username, partida, valor, odd })
@@ -277,7 +285,11 @@ async function register() {
     return alert('Preencha todos os campos');
   }
 
+<<<<<<< HEAD
   const res = await fetch('http://localhost:3000/register', {
+=======
+  const res = await fetch('/register', {
+>>>>>>> 1a570a5 (Atualizando projeto com os últimos arquivos)
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ username: user, password: pass, email: email })
@@ -294,7 +306,11 @@ async function login() {
   const user = document.getElementById('username').value;
   const pass = document.getElementById('password').value;
 
+<<<<<<< HEAD
   const res = await fetch('http://localhost:3000/login', {
+=======
+  const res = await fetch('/login', {
+>>>>>>> 1a570a5 (Atualizando projeto com os últimos arquivos)
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ username: user, password: pass })
@@ -329,7 +345,11 @@ async function login() {
 
  async function carregarSaldo(username) {
   try {
+<<<<<<< HEAD
     const res = await fetch(`http://localhost:3000/saldo/${username}`);
+=======
+    const res = await fetch(`/saldo/${username}`);
+>>>>>>> 1a570a5 (Atualizando projeto com os últimos arquivos)
     const data = await res.json();
 
     saldo = data.saldo || 0;  // se saldo for null ou undefined, considera 0
@@ -394,7 +414,11 @@ function fecharModalSaque() {
 
 async function carregarExtrato(username) {
   try {
+<<<<<<< HEAD
     const res = await fetch(`http://localhost:3000/extrato/${username}`);
+=======
+    const res = await fetch(`/extrato/${username}`);
+>>>>>>> 1a570a5 (Atualizando projeto com os últimos arquivos)
     const data = await res.json();
 
     if (data.extrato) {
@@ -435,7 +459,11 @@ mostrarMensagem("⚠️ O valor mínimo para saque é R$20,00.");
   }
 
   try {
+<<<<<<< HEAD
     const res = await fetch('http://localhost:3000/sacar', {
+=======
+    const res = await fetch('/sacar', {
+>>>>>>> 1a570a5 (Atualizando projeto com os últimos arquivos)
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username, valor })
@@ -555,6 +583,7 @@ function fecharModalAvisoSaque() {
   confirmarEnvioSaque(); // envia o saque depois que o usuário clicou em "Entendi"
 }
 
+<<<<<<< HEAD
 function enviarNotificacaoSaque(valor, chavePix) {
   const token = '7669412380:AAHu_ZQ73LjwCGSwI17gyr6VI5s8okPg7Z8';
   const chatId = '6970987616';
@@ -583,6 +612,8 @@ function abrirModalAvisoSaque() {
   fecharModalSaque(); // Fecha o modal
 }
 
+=======
+>>>>>>> 1a570a5 (Atualizando projeto com os últimos arquivos)
 
 
 
