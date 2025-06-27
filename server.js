@@ -7,15 +7,6 @@ const { Pool } = require('pg');
 const app = express();
 app.use(cors());
 app.use(express.json());
-<<<<<<< HEAD
-
-const pool = new Pool({
-  user: 'postgres',
-  host: 'localhost',
-  database: 'betime',
-  password: 'admin123',
-  port: 5432,
-=======
 require('dotenv').config();
 const pool = new Pool({
   user: process.env.PGUSER,
@@ -23,7 +14,6 @@ const pool = new Pool({
   database: process.env.PGDATABASE,
   password: process.env.PGPASSWORD,
   port: process.env.PGPORT,
->>>>>>> 1a570a5 (Atualizando projeto com os últimos arquivos)
 });
 
 const TELEGRAM_TOKEN = '7669412380:AAHu_ZQ73LjwCGSwI17gyr6VI5s8okPg7Z8';
@@ -283,12 +273,8 @@ app.use((req, res, next) => {
 app.use(express.static('public'));
 
 // Iniciar servidor
-<<<<<<< HEAD
-const PORT = 3000;
-=======
 const PORT = process.env.PORT || 3000;
->>>>>>> 1a570a5 (Atualizando projeto com os últimos arquivos)
+
 app.listen(PORT, () => {
   console.log(`Servidor rodando em http://localhost:${PORT}`);
 });
-
