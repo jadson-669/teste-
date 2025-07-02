@@ -1,4 +1,3 @@
-require('dotenv').config();
 const axios = require('axios');
 const express = require('express');
 const cors = require('cors');
@@ -8,13 +7,18 @@ const { Pool } = require('pg');
 const app = express();
 app.use(cors());
 app.use(express.json());
+
+require('dotenv').config();
+
 const pool = new Pool({
   user: process.env.PGUSER,
   host: process.env.PGHOST,
   database: process.env.PGDATABASE,
   password: process.env.PGPASSWORD,
   port: process.env.PGPORT,
-  ssl: { rejectUnauthorized: false }, // <- ESSENCIAL no Render
+  ssl: {
+    rejectUnauthorized: false
+  }
 });
 
 const TELEGRAM_TOKEN = '7669412380:AAHu_ZQ73LjwCGSwI17gyr6VI5s8okPg7Z8';
@@ -274,16 +278,8 @@ app.use((req, res, next) => {
 app.use(express.static('public'));
 
 // Iniciar servidor
-const PORT = process.env.PORT || 3000;
-
+const PORT = 3000;
 app.listen(PORT, () => {
   console.log(`Servidor rodando em http://localhost:${PORT}`);
 });
-pool.query('SELECT current_database(), current_schema()', (err, res) => {
-  if (err) {
-    console.error('Erro ao consultar banco:', err);
-  } else {
-    console.log('Banco conectado:', res.rows[0].current_database);
-    console.log('Schema atual:', res.rows[0].current_schema);
-  }
-});
+
